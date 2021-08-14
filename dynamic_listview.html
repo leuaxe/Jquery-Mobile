@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+    <script>
+        $(document).ready(function(){
+
+            //Cargar recetas de local storage, si no hay ninguna, user predeterminadas
+            var recipies;
+
+            if (localStorage.getItem('recipies')) {
+                recipies = JSON.parse(localStorage.getItem('recipies'));
+            } else{
+                //si no hay loca storage usar recetas predeterminadas
+                recipies = [
+                    {
+                        id: 1,
+                        name: 'Hamburguesa con Queso',
+                        time: 5,
+                        ingredients: 'Pan, Hamburguesa, queso, lechuga, tomate',
+                        preparation: 'Mezcle todo en la juguera y sirva a gusto',
+                        type: 'Plato de fondo'
+                    },
+                    {
+                        id: 2,
+                        name: 'Hamburguesa con Jamon',
+                        time: 15,
+                        ingredients: 'Pan, Hamburguesa, jamon, lechuga, tomate',
+                        preparation: 'Mezcle todo en el horno y sirva a gusto',
+                        type: 'Colacion'
+                    },
+                    {
+                        id: 3,
+                        name: 'Torta',
+                        time: 45,
+                        ingredients: 'Azucar, mantequilla, tomate, papaya, pollo',
+                        preparation: 'Hierva por 40 minutos y revuelva bien',
+                        type: 'Postre'
+                    }
+                ];
+            }
+
+            //funcion que muestra las listas en la pagina de inicio
+            var showRecipies = function () {
+                //borrar contenido existente
+                $('#recipies_list').html('');
+
+                //agrega cada una de las recetas utilizando funcion definida antes
+                for (var i = 0; i < recipies.length; i++) {
+                    addRecipie(recipies[i]);
+                }
+            }
+
+            //funcion para agregar elementos a la lista
+            var addRecipie = function(recipieData){
+
+                //HTML elemento de listado de pagina de inicio
+                var listElementHTML = '<li><a class="recipie_item" href="#item'+ recipieData.id +'">' + recipieData.name+ '</a></li>';
+
+                //ponemos el codigo HTML en el listado
+                $('#recipies_list').append(listElementHTML);
+
+                //actualizar vista del listado (comando de JQuery Mobile)
+                $('#recipies_list').listview("refresh");
+            };
+
+            //ejecutar al cargar el documento para mostrar el listado de recetsa
+            showRecipies();
+        });
+    </script>
+
+    <div id="homepage" data-role="page">
+
+        <div data-role="header">
+            <h1>RicasRecipies</h1>
+        </div>
+
+        <div data-role="content">
+
+            <a href="#add_recipie" data-role="button" data-theme="b">Agregar Receta</a>
+
+            <ul id="recipies_list" data-role="listview" data-filter="true" data-filter-placeholder="Buscar receta"></ul>
+
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-iconpos="bottom">
+                <ul>
+                    <li><a href="#" data-icon="home">Listado</a></li>
+                    <li><a href="#about_page" data-icon="info">Sobre RicasRecipies</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
