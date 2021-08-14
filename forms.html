@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lists</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+    
+    <!-- HOME PAGE-->
+    <div id="homepage" data-role="page">
+
+        <div data-role="header">
+            <h1>RicasRecipies</h1>
+        </div>
+
+        <div data-role="content">
+
+            <a href="#add_recipie" data-role="button">Agregar Receta</a>
+
+            <ul id="recipies_list" data-role="listview" data-filter="true" data-filter-placeholder="Buscar">
+                <li><a href="#item1">Hamburguesas con queso</a></li>
+                <li><a href="#item2">Torta de Manzana</a></li>
+                <li><a href="#item3">Humitas</a></li>
+            </ul>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-iconpos="bottom">
+                <ul>
+                    <li><a href="#" data-icon="home">Listado</a></li>
+                    <li><a href="#about_page" data-icon="info">Sobre RicasRecipies</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT PAGE-->
+    <div id="about_page" data-role="page">
+
+        <div data-role="header">
+            <h1>RicasRecipies</h1>
+        </div>
+
+        <div data-role="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium voluptate, nisi consequatur consectetur atque dolores asperiores labore fugit nobis repellendus quas id qui adipisci sunt corporis nesciunt perferendis iste quo porro aspernatur.</p>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-iconpos="bottom">
+                <ul>
+                    <li><a href="#homepage" data-icon="home">Home</a></li>
+                    <li><a href="#" data-icon="info">Sobre RicasRecipies</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ITEM PAGE-->
+    <div id="item1" data-role="page">
+        <div data-role="header">
+            <h1>Hamburguesa con Queso</h1>
+            <a href="" data-rel="back">volver</a>
+        </div>
+
+        <div data-role="content">
+            Ingredientes:
+            <ul>
+                <li>Hamburguesa</li>
+                <li>Queso</li>
+                <li>Pan</li>
+                <li>Lechuga</li>
+            </ul>
+            Mezclar todo en la juguera y servir a gusto
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-iconpos="bottom">
+                <ul>
+                    <li><a href="#homepage" data-icon="home">Home</a></li>
+                    <li><a href="#about_page" data-icon="info">Sobre RicasRecipies</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
