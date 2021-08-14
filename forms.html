@@ -87,6 +87,7 @@
         </div>
     </div>
 
+    <!-- FORMULARIO DE RECETA-->
     <div data-role="page" id="add_recipie">
 
         <div data-role="header">
@@ -95,6 +96,17 @@
         </div>
 
         <div data-role="content">
+
+            <form id="form_new_recipie">
+                <input type="text" name="recipie_name" id="recipie_name" value="" placeholder="Nombre">
+
+                <select name="recipie_type" id="recipie_type" data-native-menu="false">
+                    <option value="Postre">Postre</option>
+                    <option value="Plato de fondo">Plato de fondo</option>
+                    <option value="Ensalada">Ensalada</option>
+                    <option value="Colacion">Colacion</option>
+                </select>
+            </form>
 
         </div>
 
